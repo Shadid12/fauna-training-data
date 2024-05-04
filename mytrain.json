@@ -1,0 +1,493 @@
+[
+  {"instruction": "Explain how to create a collection named Fruits in FQL.", "input": "", "output": "Collection.create({ name: \"Fruits\" })"},
+  {"instruction": "Explain how to create a collection named Vegetables in FQL.", "input": "", "output": "Collection.create({ name: \"Vegetables\" })"},
+  {"instruction": "Explain how to create a collection named User in FQL.", "input": "", "output": "Collection.create({ name: \"user\" })"},
+  {"instruction": "Explain how to create a collection named Books in FQL.", "input": "", "output": "Collection.create({ name: \"Books\" })"},
+  {"instruction": "Explain how to create a collection named Orders in FQL.", "input": "", "output": "Collection.create({ name: \"Orders\" })"},
+  {"instruction": "How do you get all collections in a database using FQL?", "input": "", "output": "Collection.all()"},
+  {"instruction": "How can you find collections in a database that include 'te' in their name using FQL?", "input": "", "output": "Collection.where(.name.includes('te'))"},
+  {"instruction": "How can you find collections that include 'Info' in their name using FQL?", "input": "", "output": "Collection.where(.name.includes('Info'))"},
+  {"instruction": "How can you find collections that end with 'Data' in their name using FQL?", "input": "", "output": "Collection.where(.name.endsWith('Data'))"},
+  {"instruction": "How can you find the first collection that includes 'te' in its name using FQL?", "input": "", "output": "Collection.firstWhere(.name.includes('te'))"},
+  {"instruction": "How can you find the first collection that includes 'Admin' in its name using FQL?", "input": "", "output": "Collection.firstWhere(.name.includes('Admin'))"},
+  {"instruction": "How can you find the first collection whose name starts with 'Temp' using FQL?", "input": "", "output": "Collection.firstWhere(.name.startsWith('Temp'))"},
+  {"instruction": "How do you find a collection by its exact name, for example, 'Letter', using FQL?", "input": "", "output": "Collection.byName(\"Letter\")"},
+  {"instruction": "How to create a new Collection called Livestock in FQL?", "input": "", "output": "Collection.create({ name: \"Livestock\" })"},
+  {"instruction": "How do you find a collection named Human in FQL?", "input": "", "output": "Collection.byName(\"Human\")"},
+  {"instruction": "How do I find all collections that have 'ramon' in their name using FQL?", "input": "", "output": "Collection.where(.name.includes('ramon'))"},
+  {
+    "instruction": "Use the FQL code provided to explain how to create a new document in the User collection with specific attributes.",
+    "input": "How do I create a new user named John Doe with the email johndoe@example.com in FQL?",
+    "output": "To create a new user named John Doe with the email johndoe@example.com in FQL, you would use the following code:\n\nUser.create({\n  name: \"John Doe\",\n  email: \"johndoe@example.com\"\n})"
+  },
+  {
+    "instruction": "Provide an FQL command to create a document in a new collection called Books with the given attributes.",
+    "input": "Create a book titled 'The Great Gatsby' with the status 'Available' in FQL.",
+    "output": "To create a document in the Books collection with the title 'The Great Gatsby' and the status 'Available', use this FQL command:\n\nBooks.create({\n  title: \"The Great Gatsby\",\n  status: \"Available\"\n})"
+  },
+  {
+    "instruction": "Explain how to create a document in the Todo collection with multiple fields using FQL.",
+    "input": "I need to add a todo in FQL with the title 'Buy Groceries' and status 'Pending'. How do I do that?",
+    "output": "To add a todo item with the title 'Buy Groceries' and status 'Pending' in FQL, you can use the following code:\n\nTodo.create({\n  title: \"Buy Groceries\",\n  status: \"Pending\"\n})"
+  },
+  {
+    "instruction": "Provide the FQL code necessary to create a new document in the 'Pets' collection, specifying the type and name of the pet.",
+    "input": "How can I add a pet dog named Rover to the Pets collection using FQL?",
+    "output": "To add a pet dog named Rover to the Pets collection using FQL, use the following code:\n\nPets.create({\n  type: \"Dog\",\n  name: \"Rover\"\n})"
+  },
+  {
+    "instruction": "Explain how to create a new document in the 'Events' collection, detailing the event name, date, and location using FQL.",
+    "input": "I need to schedule an event named 'Company Retreat' on October 15, 2024, at Lakeview Resort in FQL. What would the command look like?",
+    "output": "To schedule an event named 'Company Retreat' on October 15, 2024, at Lakeview Resort using FQL, you would use the following command:\n\nEvents.create({\n  name: \"Company Retreat\",\n  date: \"2024-10-15\",\n  location: \"Lakeview Resort\"\n})"
+  },
+  {
+    "instruction": "Show the FQL code to create a document in the 'Employees' collection that includes fields for employee name, position, and start date.",
+    "input": "What's the FQL command to add a new employee named Emily Carter as a 'Software Developer' who started on April 1, 2024?",
+    "output": "To add a new employee named Emily Carter as a 'Software Developer' who started on April 1, 2024, use the FQL command:\n\nEmployees.create({\n  name: \"Emily Carter\",\n  position: \"Software Developer\",\n  start_date: \"2024-04-01\"\n})"
+  },
+  {
+    "instruction": "Explain how to retrieve all documents from a specific collection using FQL.",
+    "input": "How do I fetch all documents from the Todo collection using FQL?",
+    "output": "To retrieve all documents from the Todo collection using FQL, use the following code:\n\nTodo.all()"
+  },
+  {
+    "instruction": "Demonstrate how to retrieve a specific document by its ID from a collection using FQL.",
+    "input": "How can I get the todo item with the ID 388467097679691849 in FQL?",
+    "output": "To retrieve a specific todo item by its ID using FQL, use this command:\n\nTodo.byId('388467097679691849')"
+  },
+  {
+    "instruction": "Explain how to fetch all documents from a specific collection in FQL.",
+    "input": "How do I see all products listed in the Products collection using FQL?",
+    "output": "To see all documents in the Products collection using FQL, you can use the following command:\n\nProducts.all()"
+  },
+  {
+    "instruction": "Demonstrate how to retrieve a document by its ID from a collection in FQL.",
+    "input": "What's the FQL code to get the details of a product with the ID 123456789?",
+    "output": "To retrieve details of a product by its ID using FQL, use this command:\n\nProducts.byId('123456789')"
+  },
+  {
+    "instruction": "Show how to find a user by a specific field, such as name, using an index in FQL.",
+    "input": "Find a user named Alice in FQL. How do I write this query?",
+    "output": "To find a user named Alice using FQL, you would use an index that searches by name, like this:\n\nUser.byName('Alice').first()\n\nThis returns the first document that matches the query. Remember that `byName` is an example index name and may vary depending on your schema."
+  },
+  {
+    "instruction": "Explain how to use an index to find and retrieve the first document matching a specific field in FQL.",
+    "input": "I need to find the first employee who is a Manager using FQL. What's the command?",
+    "output": "To find the first employee with the position of Manager in FQL, you would use the following command:\n\nEmployees.byPosition('Manager').first()\n\nThis retrieves the first document where the position field equals 'Manager'. The `byPosition` index is an example and may vary based on your schema."
+  },
+  {
+    "instruction": "Demonstrate how to use the `.where()` method in FQL to find documents with a specific field matching exactly a given value.",
+    "input": "How can I find all letters addressed to Jon in the Letter collection using FQL?",
+    "output": "To find all letters in the 'Letter' collection addressed to Jon using FQL, you would use the following command:\n\nLetter.where(.name == 'Jon')\n\nThis command filters and returns all documents where the `name` field is exactly 'Jon'."
+  },
+  {
+    "instruction": "Explain how to use the `.where()` method to find documents where a field includes a particular substring in FQL.",
+    "input": "I need to find all users whose firstname includes 'jho'. How do I write this in FQL?",
+    "output": "To find all users whose firstname includes 'jho' in the User collection, use the `.where()` method in FQL like this:\n\nUser.where(.firstname.includes(\"jho\"))\n\nThis will return all documents in the User collection where the `firstname` includes the substring 'jho'."
+  },
+  {
+    "instruction": "Explain how to use the `.where()` method in FQL to filter documents by a numerical condition.",
+    "input": "How do I find all accounts with a balance of less than 3000 using FQL?",
+    "output": "To find all accounts with a balance less than 3000 in FQL, you can use the `.where()` method with a conditional expression like this:\n\nAccount.where(.balance < 3000)\n\nThis command filters and returns all documents in the Account collection where the balance is less than 3000."
+  },
+  {
+    "instruction": "Demonstrate how to filter documents in FQL where a numeric field exceeds a certain value.",
+    "input": "How can I find all orders over 1000 in total amount using FQL?",
+    "output": "To find all orders where the total amount exceeds 1000 using FQL, use the following command:\n\nOrders.where(.totalAmount > 1000)\n\nThis filters and returns all documents in the Orders collection where the `totalAmount` is greater than 1000."
+  },
+  {
+    "instruction": "Show how to use the `.where()` method in FQL to exclude a specific value in a document field.",
+    "input": "I want to find all books that are not categorized as 'Fiction' using FQL. What's the command?",
+    "output": "To find all books that are not categorized as 'Fiction' in the Books collection using FQL, you can write the query as follows:\n\nBooks.where(.genre !== 'Fiction')\n\nThis will return all documents in the Books collection where the genre is not 'Fiction'."
+  },
+  {
+    "instruction": "Explain how to use the `.where()` method in FQL to filter documents based on a date field.",
+    "input": "How do I find all events scheduled after January 1, 2025, using FQL?",
+    "output": "To find all events scheduled after January 1, 2025, in the Events collection using FQL, you can use the `.where()` method with a date comparison like this:\n\nEvents.where(.date > '2025-01-01')\n\nThis command filters and returns all documents in the Events collection where the `date` is after January 1, 2025."
+  },
+  {
+    "instruction": "Demonstrate how to use the `.where()` method in FQL to filter documents based on a date range.",
+    "input": "How can I find all orders placed between January 1, 2024, and December 31, 2024, using FQL?",
+    "output": "To find all orders placed between January 1, 2024, and December 31, 2024, in the Orders collection using FQL, you can use the `.where()` method with a date range like this:\n\nOrders.where(.orderDate >= '2024-01-01' && .orderDate <= '2024-12-31')\n\nThis command filters and returns all documents in the Orders collection where the `orderDate` falls within the specified range."
+  },
+  {
+    "instruction": "Show how to use the `.where()` method in FQL to filter documents based on multiple conditions.",
+    "input": "How do I find all users with the role 'Admin' and status 'Active' using FQL?",
+    "output": "To find all users with the role 'Admin' and status 'Active' in the User collection using FQL, you can use the `.where()` method with multiple conditions like this:\n\nUser.where(.role == 'Admin' && .status == 'Active')\n\nThis command filters and returns all documents in the User collection where the `role` is 'Admin' and the `status` is 'Active'."
+  },
+  {
+    "instruction": "Show how to create a new collection in FQL.",
+    "input": "How do I create a new collection named 'Books' in FQL?",
+    "output": "To create a new collection named 'Books' in FQL, use the following command:\n\nCollection.create({\n  name: 'Books'\n})\n\nThis will establish a new collection in your database named 'Books'."
+  },
+  {
+    "instruction": "Explain how to add a document to a collection in FQL.",
+    "input": "How can I add a new document with a name and email to the 'Users' collection using FQL?",
+    "output": "To add a new document to the 'Users' collection in FQL, execute this command:\n\nUsers.create({\n  name: 'John Doe',\n  email: 'john.doe@example.com'\n})\n\nThis adds a new document to the 'Users' collection with the specified name and email."
+  },
+  {
+    "instruction": "Show how to update a document in FQL.",
+    "input": "How do I update the email address of a user with ID '123456' in FQL?",
+    "output": "To update the email address of a user with ID '123456' in FQL, you can use this command:\n\nlet user = User.byId('123456')\nuser.update({\n  email: 'new.email@example.com'\n})\n\nThis updates the email of the specified user."
+  },
+  {
+    "instruction": "Demonstrate how to delete a document by ID in FQL.",
+    "input": "How can I delete a document with the ID '78910' from the 'Tasks' collection in FQL?",
+    "output": "To delete a document with the ID '78910' from the 'Tasks' collection in FQL, execute the following:\n\nlet task = Task.byId('78910')\ntask.delete()\n\nThis removes the specified document from the 'Tasks' collection."
+  },
+  {
+    "instruction": "Show how to use the `.where()` method in FQL to filter documents based on multiple conditions.",
+    "input": "How do I find all users with the role 'Admin' and status 'Active' using FQL?",
+    "output": "To find all users with the role 'Admin' and status 'Active' in the User collection using FQL, you can use the `.where()` method like this:\n\nUsers.where({ role: 'Admin', status: 'Active' })\n\nThis command filters and returns all documents in the Users collection where the `role` is 'Admin' and the `status` is 'Active'."
+  },
+  {
+    "instruction": "Demonstrate how to create a one-to-many relationship in FQL between users and todos.",
+    "input": "How do I establish a relationship where each user can have multiple todos in FQL?",
+    "output": "To establish a one-to-many relationship between users and todos in FQL, create a reference field in the Todo document that links to the User. Here's how you can create todos associated with a specific user:\n\nlet user = User.byId(\"388327586567028802\")\n\nTodo.create({\n  title: 'Car Wash',\n  status: 'Pending',\n  owner: user\n})\n\nTodo.create({\n  title: 'Pick up the phase modulator',\n  status: 'Pending',\n  owner: user\n})\n\nThis sets up a one-to-many relationship where each todo created references its owner user."
+  },
+  {
+    "instruction": "Explain how to query related documents in a one-to-many relationship in FQL.",
+    "input": "How do I find all todos for a specific user in FQL?",
+    "output": "To get all todos for a specific user in FQL, you can utilize a query that filters todos by their owner. Here’s how:\n\nlet user = User.byId(\"388327586567028802\")\nTodo.byOwner(user)\n\nThis retrieves all todos that are associated with the specified user. Make sure that an index named 'byOwner' is created on the Todo collection to support this query."
+  },
+  {
+    "instruction": "Show how to filter related documents in FQL based on multiple conditions.",
+    "input": "How do I filter todos by status and title for a specific user in FQL?",
+    "output": "To filter todos by status and title for a specific user in FQL, you can refine your query with additional conditions. Here's an example:\n\nlet user = User.byId(\"388327586567028802\")\nTodo.byOwner(user)\n  .where(.status == 'Pending' && .title.includes('Car'))\n\nThis query filters todos that are 'Pending' and include the word 'Car' in their title for the specified user."
+  },
+  {
+    "instruction": "Describe how to retrieve a document along with related entity data in FQL.",
+    "input": "How can I retrieve a todo along with the owner's name in FQL?",
+    "output": "To retrieve a todo document along with the owner’s name in FQL, you can specify which related entity fields to include in your query. Here’s an example:\n\nTodo.byId(\"388472684753715273\") {\n  title,\n  status,\n  owner {\n   name\n  }\n}\n\nThis query fetches the title and status of the todo along with the name of the owner."
+  },
+  {
+    "instruction": "Explain how to create and use an index to query data in FQL.",
+    "input": "How do I create an index in FQL to efficiently query documents based on specific attributes?",
+    "output": "In FQL, you create an index to efficiently query documents by specific attributes without scanning each document. Here’s how you can create an index on the People collection to search by first_name and last_name:\n\n```fsl\ncollection People {\n  index searchByName {\n    terms [.first_name, .last_name]\n  }\n}\n```\n\nOnce the index is created, you can query it like this:\n\n```fql\nPeople.searchByName('Alice', 'Johnson')\n```\n\nThis query will return all documents from the People collection where the first_name is 'Alice' and the last_name is 'Johnson'."
+  },
+  {
+    "instruction": "Describe how to define an index with a range and sort order in FQL.",
+    "input": "How do I create an index that allows me to sort and filter documents by a price range in FQL?",
+    "output": "To create an index that sorts and filters documents by a price range in the Product collection, define the index with the price field in the values and specify the sort order. Here’s how:\n\n```fsl\ncollection Product {\n  index priceRange {\n    values [.price]\n  }\n}\n```\n\nTo query this index for products priced between 100 and 150, inclusive, use the following FQL command:\n\n```fql\nProduct.priceRange({ from: 100, to: 150 })\n```\n\nThis will return all products within the specified price range, sorted in ascending order by default."
+  },
+  {
+    "instruction": "Show how to perform a fully covered query using an index in FQL.",
+    "input": "What is a fully covered query in FQL and how do I execute one?",
+    "output": "A fully covered query in FQL is a query that retrieves all required data directly from an index without needing to access the source documents. This type of query is highly efficient. For example, if you have an index on the Customer collection that covers the last_name field, you can perform a fully covered query like this:\n\n```fsl\ncollection Customer {\n  index sortedOnLastname {\n    values [.lastname]\n  }\n}\n```\n\nTo query customers sorted by their last names without fetching the source document, you would execute:\n\n```fql\nCustomer.sortedOnLastname()\n```\n\nThis query is considered fully covered because it retrieves the last names directly from the index."
+  },
+  {
+    "instruction": "Explain the differences between data models in SQL and Fauna.",
+    "input": "What are the main differences between the data models of SQL databases and Fauna?",
+    "output": "SQL databases store data in tables composed of rows and columns, with a strict schema that requires defining all columns and their data types upfront. In contrast, Fauna stores data as JSON documents within collections. This model is more flexible, allowing for dynamic schemas where fields can be added on the fly without constraints on data types, although field constraints and checks can still be defined."
+  },
+  {
+    "instruction": "Describe how to create a collection in Fauna compared to creating a table in SQL.",
+    "input": "How do I create a collection in Fauna similar to creating a table in SQL?",
+    "output": "In SQL, you would use a CREATE TABLE statement to define a table's structure, including its columns and constraints. For example:\n\n```sql\nCREATE TABLE dept(\n  deptno NUMBER(2,0),\n  dname VARCHAR2(14),\n  loc VARCHAR2(13),\n  CONSTRAINT pk_dept PRIMARY KEY (deptno)\n);\n```\n\nIn Fauna, you create a collection using the Collection.create method or by defining a schema in Fauna Schema Language (FSL) and uploading it. For example:\n\n```fql\nCollection.create({\n name: \"Dept\"\n})\n```\n\nAnd optionally define further constraints and indexes in FSL:\n\n```fsl\ncollection Dept {\n  unique [.deptno]\n  ...\n  index byDeptNo {\n    terms [.deptno]\n  }\n}\n```"
+  },
+  {
+    "instruction": "Translate a SQL primary key constraint into Fauna's indexing system.",
+    "input": "How do I mimic a primary key constraint in Fauna?",
+    "output": "In SQL, a primary key is defined using a constraint in the CREATE TABLE statement to ensure uniqueness and not-null constraints on one or more columns. For example:\n\n```sql\nCONSTRAINT pk_dept PRIMARY KEY (deptno)\n```\n\nIn Fauna, while there's no direct primary key concept, you can achieve a similar effect by using indexes. You would define a unique index on the field you want to act as a primary key. In FSL, you would specify it like this:\n\n```fsl\ncollection Dept {\n  unique [.deptno]\n}\n```\n\nThis ensures that the 'deptno' field in the 'Dept' collection is unique, mimicking a primary key's behavior."
+  },
+  {
+    "instruction": "Explain how relationships are managed in SQL versus Fauna.",
+    "input": "How are relationships between tables handled in SQL compared to collections in Fauna?",
+    "output": "In SQL, relationships between tables are managed using foreign keys and joins. For example, an employee table might have a foreign key that references a department table, allowing joins to fetch related data. In Fauna, relationships are managed using references between documents in different collections. Instead of foreign keys, you use document references, and instead of joins, you use query functions that fetch data based on these references, such as using indexes to perform relationship queries."
+  },
+  {
+    "instruction": "Concatenate the first and last name of each employee from the Employees collection using FQL.",
+    "input": "How can I combine the first name and last name of each employee in the Employees collection into a single string in FQL?",
+    "output": "To concatenate the first and last name of each employee from the Employees collection in FQL, you can use the following command:\n\nEmployees.all()\n  .map(employee => employee.firstName + \" \" + employee.lastName)"
+  },
+  {
+    "instruction": "Calculate the number of years each employee has been with the company from their start date in the Employees collection using FQL.",
+    "input": "How can I calculate the tenure of each employee from their start date in the Employees collection using FQL?",
+    "output": "To calculate how long each employee has been with the company from their start date in the Employees collection in FQL, use this command:\n\nEmployees.all()\n  .map(employee => {\n    let years = Year(Now()) - Year(Date(employee.startDate));\n    return { name: employee.firstName, yearsWithCompany: years }\n  })"
+  },
+  {
+    "instruction": "Filter the Products collection to find products with a price above $100 and apply a 10% discount, returning the product name and discounted price using FQL.",
+    "input": "What's the FQL command to find products priced above $100 and apply a 10% discount on the price, displaying the product name and discounted price?",
+    "output": "To find products in the Products collection with a price above $100 and apply a 10% discount using FQL, you would use the following command:\n\nProducts.where(.price > 100)\n  .map(product => {\n    let discountPrice = product.price * 0.9; // 10% discount\n    return { name: product.name, discountedPrice: discountPrice }\n  })"
+  },
+  {
+    "instruction": "Transform the address field in the Stores collection into a full address string combining street, city, and state, and return it with the store name using FQL.",
+    "input": "How can I transform and combine the street, city, and state address fields of each store into a full address and include the store name in FQL?",
+    "output": "To transform and combine the address fields into a full address string and include the store name in the Stores collection using FQL, use the following command:\n\nStores.all()\n  .map(store => {\n    let fullAddress = store.address.street + \", \" + store.address.city + \", \" + store.address.state;\n    return { storeName: store.name, fullAddress: fullAddress }\n  })"
+  },
+  {
+    "instruction": "Retrieve only the 'name' field from each document in the 'Employees' collection using FQL.",
+    "input": "How can I get only the names of all employees in the Employees collection using FQL?",
+    "output": "To retrieve only the 'name' field from each document in the 'Employees' collection using FQL, you can use the following command:\n\nEmployees.all() { name }"
+  },
+  {
+    "instruction": "Retrieve the 'name' and 'address' fields, but from the 'address', only fetch the 'city' and 'state' from each document in the 'Stores' collection using FQL.",
+    "input": "How do I fetch the name and city and state from the address for each store in the Stores collection using FQL?",
+    "output": "To retrieve the 'name' and specific fields within 'address' (city and state) from each document in the 'Stores' collection using FQL, use the command:\n\nStores.all() { name, address { city, state } }"
+  },
+  {
+    "instruction": "Retrieve the 'name' field and the 'address.city' field, but alias 'address.city' as 'city' from each document in the 'Stores' collection using FQL.",
+    "input": "I need to get the store name and its city as 'city' from each store in the Stores collection using FQL. How can I do that?",
+    "output": "To retrieve the 'name' and 'address.city' field, aliasing it as 'city' from each document in the 'Stores' collection using FQL, you can use:\n\nStores.all() { name, city: .address.city }"
+  },
+  {
+    "instruction": "Retrieve the 'name', 'birthdate', and 'email' fields from each document in the 'Customers' collection using FQL.",
+    "input": "How can I get the name, birthdate, and email of all customers in the Customers collection using FQL?",
+    "output": "To retrieve the 'name', 'birthdate', and 'email' fields from each document in the 'Customers' collection using FQL, use the following command:\n\nCustomers.all() { name, birthdate, email }"
+  },
+  {
+    "instruction": "Retrieve the 'product_name' and 'details' fields, but from 'details', only fetch 'price' and 'manufacturer' from each document in the 'Products' collection using FQL.",
+    "input": "How do I fetch the product name, price, and manufacturer from each product in the Products collection using FQL?",
+    "output": "To retrieve the 'product_name' and specific fields within 'details' (price and manufacturer) from each document in the 'Products' collection using FQL, you can use:\n\nProducts.all() { product_name, details: { price, manufacturer } }"
+  },
+  {
+    "instruction": "Explain the features and benefits of using Fauna Query Language (FQL) in modern application development.",
+    "input": "Can you tell me about the features and benefits of FQL?",
+    "output": "Fauna Query Language (FQL) is the query language used by Fauna, a distributed and flexible database. Key features include:\n\n1. **Expressiveness**: FQL allows complex queries and operations beyond simple CRUD functionalities, including transactions and custom business logic.\n2. **Serverless Integration**: Fauna and FQL are designed for serverless architectures, providing scalable, flexible, and maintenance-free solutions.\n3. **Safety and Reliability**: It supports multi-region data replication and strong consistency.\n4. **Complex Query Capabilities**: FQL includes built-in functions for data transformation, combining, and filtering, as well as handling document relationships.\n5. **Security**: Fauna integrates robust security features at the query level for fine-grained access control and secure data access patterns."
+  },
+  {
+    "instruction": "Describe the basic syntax and functions used in Fauna Query Language (FQL) for common database operations.",
+    "input": "What is the basic syntax of FQL for typical database operations?",
+    "output": "The basic syntax of FQL includes:\n\n- **Creating Collections**: `Collection.create({ name: \"CollectionName\" })`\n- **Retrieving All Documents**: `CollectionName.all()`\n- **Retrieving Documents by ID**: `CollectionName.byId('documentId')`\n- **Creating Documents**: `CollectionName.create({ field1: \"value1\", ... })`\n- **Updating Documents**: `let doc = CollectionName.byId('documentId'); doc.update({ field1: \"newValue1\" })`\n- **Deleting Documents**: `let doc = CollectionName.byId('documentId'); doc.delete()`\n- **Using Indexes**: `IndexName.find({ terms: { field: \"value\" } })`\n- **Filtering Documents**: `CollectionName.where(.field == \"value\")`\n- **Projection**: `CollectionName.all() { field1, field2 }`\n- **Set Transformations**: `CollectionName.all().map(doc => doc.field1 + \" transformed\")`\n\nThese elements illustrate how to perform essential database operations in FQL, focusing on managing collections and documents, and utilizing indexes for efficient querying."
+  },
+  {
+    "instruction": "Create a function in FQL to calculate a discount for a given price based on a discount rate.",
+    "input": "How do I write a function to calculate a discount on a price using a specified discount rate in FQL?",
+    "output": "To calculate a discount on a price based on a specified discount rate in FQL, you can define the following function:\n\nfunction calculateDiscount(price: Number, discountRate: Number): Number {\n  price - (price * discountRate / 100)\n}\n\nThis function takes the original price and the discount rate as parameters, calculates the discount, and subtracts it from the original price to provide the discounted price."
+  },
+  {
+    "instruction": "Create a function in FQL to check if a product is in stock by product ID.",
+    "input": "I need a function in FQL to check stock availability for a product by its ID. How should I write it?",
+    "output": "To check the stock availability of a product by its ID in FQL, you can use the following function with the 'server-readonly' role to ensure it only reads data:\n\n@role(server-readonly)\nfunction checkStock(productId: String): Boolean {\n  let product = Product.byId(productId)\n  product.quantity > 0\n}\n\nThis function retrieves the product by its ID, checks the quantity, and returns true if the quantity is greater than zero, indicating the product is in stock."
+  },
+  {
+    "instruction": "Create a function in FQL to update a customer's address.",
+    "input": "How can I write a function in FQL to update a customer's address using their customer ID?",
+    "output": "To update a customer's address in FQL, you need to use a function with the 'admin' role to ensure it has the necessary privileges:\n\n@role(admin)\nfunction updateCustomerAddress(customerId: String, newAddress: String): String {\n  let customer = Customer.byId(customerId)\n  customer.update({ address: newAddress })\n  \"Address updated successfully.\"\n}\n\nThis function takes a customer ID and a new address as parameters, updates the customer's address in the database, and returns a confirmation message."
+  },
+  {
+    "instruction": "Create a function in FQL that calculates the circumference of a circle given its radius.",
+    "input": "I need a function in FQL to calculate the circumference of a circle based on its radius. How can I write it?",
+    "output": "To calculate the circumference of a circle given its radius in FQL, you can define the following function:\n\n```fsl\nfunction getCircumference(radius) {\n  2 * Math.PI * radius\n}\n```\n\nYou can call this function with a specific radius like this:\n\n```fql\ngetCircumference(12)\n```\nThis will compute the circumference of a circle with a radius of 12."
+  },
+  {
+    "instruction": "Retrieve a list of all user-defined functions (UDFs) in a Fauna database.",
+    "input": "How can I list all the UDFs available in my Fauna database?",
+    "output": "To view all user-defined functions (UDFs) available in your Fauna database, you can use the following FQL command:\n\n```fql\nFunction.all()\n```\nThis command will retrieve a list of all functions defined in the database."
+  },
+  {
+    "instruction": "Create a function in FQL that retrieves products by name and checks if their quantity is below a certain threshold.",
+    "input": "I need a function in FQL to find products by their name and ensure their quantity is less than or equal to a specified number. How should I write it?",
+    "output": "To retrieve products by name and check if their quantity is less than or equal to a specified amount in FQL, you can define the following function:\n\n```fsl\nfunction productsByNameAndQuantity(name, quantity) {\n  Product.byName(name, { from: quantity }) {\n    name: .name,\n    description: .description,\n    quantity: .quantity\n  }\n}\n```\n\nYou can call this function with specific parameters like this:\n\n```fql\nproductsByNameAndQuantity(\"limes\", 50)\n```\nThis will search for products named 'limes' with a quantity of up to 50."
+  },
+  {
+    "instruction": "Create a function in FQL that validates a user's age within a given range.",
+    "input": "How do I write a function in FQL to check if a user's age is within a specific range?",
+    "output": "To validate a user's age within a specified range using FQL, you can define the following function:\n\n```fsl\nfunction validateUserAge(userId, minAge, maxAge) {\n  let user = User.byId(userId)\n  user.age >= minAge && user.age <= maxAge\n}\n```\n\nYou can call this function with a user ID and the age range like this:\n\n```fql\nvalidateUserAge(\"12345\", 18, 35)\n```\nThis function checks if the age of the user with ID '12345' is between 18 and 35."
+  },
+  {
+    "instruction": "Create a function in FQL to increment the stock of a product by a specified amount.",
+    "input": "I need a function in FQL to add a certain amount to a product's stock. How should I write it?",
+    "output": "To increment the stock of a product by a given amount in FQL, you can define this function:\n\n```fsl\nfunction incrementProductStock(productId, amount) {\n  let product = Product.byId(productId)\n  product.update({ quantity: product.quantity + amount })\n}\n```\n\nYou can call this function with a product ID and the increment amount like this:\n\n```fql\nincrementProductStock(\"98765\", 10)\n```\nThis function adds 10 units to the stock of the product with ID '98765'."
+  },
+  {
+    "instruction": "Create a function in FQL to mark a user as archived.",
+    "input": "How can I write a function in FQL to archive a user without deleting their data?",
+    "output": "To mark a user as archived in FQL, you can define the following function with an admin role to ensure it has the necessary privileges:\n\n```fsl\n@role(server)\nfunction archiveUser(userId) {\n  let user = User.byId(userId)\n  user.update({ isArchived: true })\n}\n```\n\nYou can call this function like this:\n\n```fql\narchiveUser(\"45678\")\n```\nThis function sets the 'isArchived' status to 'true' for the user with ID '45678'."
+  },
+  {
+    "instruction": "Create a function in FQL to calculate the total cost of an order.",
+    "input": "I need a function in FQL to sum up the prices of all items in an order. How should I write it?",
+    "output": "To calculate the total cost of an order in FQL, you can define this function:\n\n```fsl\nfunction calculateOrderTotal(orderId) {\n  let order = Order.byId(orderId)\n  order.items.reduce((total, item) => total + (item.quantity * item.price), 0)\n}\n```\n\nYou can call this function with an order ID like this:\n\n```fql\ncalculateOrderTotal(\"123456789\")\n```\nThis function computes the total cost of the order with ID '123456789' by summing up the prices of all included items."
+  },
+  {
+    "instruction": "Explain how to write comments in FQL.",
+    "input": "How do I add comments in Fauna Query Language?",
+    "output": "In FQL, you can add single-line comments using the double slash `//` at the beginning of the line. For block comments that span multiple lines, you use the slash-asterisk `/*` to start the comment and asterisk-slash `*/` to end the comment. For example:\n\n// This is a single-line comment\n\n/* This is a\nblock comment */"
+  },
+  {
+    "instruction": "Describe the basic data types and arithmetic operations in FQL.",
+    "input": "What are the basic data types and arithmetic operations available in FQL?",
+    "output": "FQL supports various data types such as integers (`Int`), long integers (`Long`), and double-precision floating points (`Double`). Basic arithmetic operations like addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`) are performed in a straightforward manner. For example:\n\n1 + 1 // 2\n8 - 1 // 7\n10 * 2 // 20\n35 / 5 // 7\n5 / 2 // 2.5\n\nThese operations also consider the usual mathematical precedence rules, which can be controlled using parentheses."
+  },
+  {
+    "instruction": "Explain how to work with strings and boolean types in FQL.",
+    "input": "How do I handle strings and boolean operations in FQL?",
+    "output": "In FQL, strings can be created with single ('') or double quotes (\"\"). String concatenation is achieved using the `+` operator. Boolean values are represented by `true` and `false`. Boolean operations include negation with `!`, and equality (`==`) and inequality (`!=`) comparisons. For example:\n\n'abc' // \"abc\"\n\"Hello, world\" // \"Hello, world\"\n!true // false\n1 == 1 // true\n\"a\" < \"b\" // true"
+  },
+  {
+    "instruction": "Describe how to manipulate arrays and objects in FQL.",
+    "input": "What are the ways to manipulate arrays and objects in Fauna Query Language?",
+    "output": "In FQL, arrays are lists of values that can be accessed by indices starting from zero. Arrays support methods like `at()` and properties like `length`. Objects in FQL are collections of key-value pairs where keys are strings and values can be any type. Both arrays and objects can be manipulated using subscript syntax or methods provided by FQL. For example:\n\nlet myArray = [\"Hello\", 45, true];\nmyArray[1]; // 45\nlet myObj = {key1: \"Hello\", key2: \"World\"};\nmyObj.key1; // \"Hello\"\n\nArrays can be sliced using `slice(start, end)` and objects accessed via dot or bracket notation."
+  },
+  {
+    "instruction": "Explain how variables and control structures work in FQL.",
+    "input": "How do I use variables and control structures in FQL?",
+    "output": "In FQL, variables are declared using the `let` keyword and can be reassigned within the same scope. Control structures like `if ... else` and logical operators (`&&`, `||`) are used to control the flow of execution. For example:\n\nlet someVar = 5;\nif (someVar == 5) { \"Variable is 5\" } else { \"Variable is not 5\" }\n\nLogical operations can combine multiple conditions to control execution paths based on the truthiness of expressions."
+  },
+  {
+    "instruction": "Explain how to sum all elements in an array using the aggregate() function in FQL.",
+    "input": "How can I use FQL to sum all elements of an array?",
+    "output": "To sum all the elements of an array in FQL using the aggregate() function, you can define an array and then use aggregate() to accumulate the sum. Here's an example:\n\n```fql\nlet iter = [1, 2, 3, 4]\niter.aggregate(0, (a, b) => a + b)\n```\n\nIn this code, `0` is the initial value, and `(a, b) => a + b` is a lambda function that defines how to sum two elements. The function processes each element of the array, resulting in a total sum of `10`."
+  },
+  {
+    "instruction": "Create an example to calculate the product of all elements in an array using FQL's aggregate() function.",
+    "input": "I want to calculate the product of numbers in an array using FQL. How should I write this?",
+    "output": "To calculate the product of all numbers in an array using the aggregate() function in FQL, you can use the following code:\n\n```fql\nlet numbers = [2, 3, 4]\nnumbers.aggregate(1, (product, number) => product * number)\n```\n\nHere, `1` is the initial value for the multiplication, and `(product, number) => product * number` is a lambda function that multiplies each element with the accumulated product. The output of this function will be `24`."
+  },
+  {
+    "instruction": "Show how to concatenate strings in an array using FQL's aggregate() function.",
+    "input": "How can I concatenate strings in an array using FQL?",
+    "output": "To concatenate strings in an array using FQL's aggregate() function, you can use the following approach:\n\n```fql\nlet words = [\"Fauna\", \"Query\", \"Language\"]\nwords.aggregate(\"\", (result, word) => result + word + \" \")\n```\n\nIn this example, the initial value is an empty string `\"\"`, and the lambda function `(result, word) => result + word + \" \"` appends each word to the result string, separated by a space. The final output will be `\"Fauna Query Language \".`"
+  },
+  {
+    "instruction": "Explain how to find the maximum number in an array using the aggregate() function in FQL.",
+    "input": "What is the method to find the maximum number in an array using FQL?",
+    "output": "To find the maximum number in an array using FQL's aggregate() function, here's how you can do it:\n\n```fql\nlet values = [5, 3, 8, 1, 4]\nvalues.aggregate(0, (max, current) => current > max ? current : max)\n```\n\nIn this code, `0` is the initial value, which assumes all numbers are positive. The lambda function `(max, current) => current > max ? current : max` compares each element with the current maximum and updates it if the current element is greater. The output will be `8`."
+  },
+  {
+    "instruction": "Create a new document in the 'Pets' collection with a type and name for the pet.",
+    "input": "How can I add a pet dog named Rover to the Pets collection using FQL?",
+    "output": "To add a pet dog named Rover to the Pets collection using FQL, use the following code:\n\nPets.create({\n  type: \"Dog\",\n  name: \"Rover\"\n})"
+  },
+  {
+    "instruction": "Retrieve all documents from a specific collection in FQL.",
+    "input": "How do I see all products listed in the Products collection using FQL?",
+    "output": "To see all documents in the Products collection using FQL, you can use the following command:\n\nProducts.all()"
+  },
+  {
+    "instruction": "Use the `.where()` method in FQL to find documents where a numeric field exceeds a certain value.",
+    "input": "How can I find all orders over 1000 in total amount using FQL?",
+    "output": "To find all orders where the total amount exceeds 1000 using FQL, use the following command:\n\nOrders.where(.totalAmount > 1000)\n\nThis filters and returns all documents in the Orders collection where the `totalAmount` is greater than 1000."
+  },
+  {
+    "instruction": "Retrieve a specific document by its ID from a collection using FQL.",
+    "input": "What's the FQL code to get the details of a product with the ID 123456789?",
+    "output": "To retrieve details of a product by its ID using FQL, use this command:\n\nProducts.byId('123456789')"
+  },
+  {
+    "instruction": "Concatenate the first and last name of each employee from the Employees collection using FQL.",
+    "input": "How can I combine the first name and last name of each employee in the Employees collection into a single string in FQL?",
+    "output": "To concatenate the first and last name of each employee from the Employees collection in FQL, you can use the following command:\n\nEmployees.all()\n  .map(employee => employee.firstName + \" \" + employee.lastName)"
+  },
+  {
+    "instruction": "Retrieve the first customer document where the address state is 'DC' using FQL.",
+    "input": "How can I find the first customer living in DC using FQL?",
+    "output": "To find the first customer whose address state is 'DC' in the Customer collection using FQL, you can use the following command:\n\nCustomer.all().firstWhere(.address.state == 'DC')"
+  },
+  {
+    "instruction": "Find the first book in the 'Books' collection where the genre is 'Science Fiction'.",
+    "input": "What is the FQL command to find the first book classified as Science Fiction?",
+    "output": "To find the first book in the 'Books' collection classified as 'Science Fiction' using FQL, use this command:\n\nBooks.all().firstWhere(.genre == 'Science Fiction')"
+  },
+  {
+    "instruction": "Retrieve the first order with a total amount greater than 500.",
+    "input": "How can I use FQL to find the first order with a total exceeding 500?",
+    "output": "To find the first order where the total amount exceeds 500 in the Orders collection using FQL, execute the following command:\n\nOrders.all().firstWhere(.totalAmount > 500)"
+  },
+  {
+    "instruction": "Get the first employee who started working before the year 2020.",
+    "input": "How do I find the first employee who started before 2020 using FQL?",
+    "output": "To retrieve the first employee who started before the year 2020 in the Employees collection using FQL, you can use this command:\n\nEmployees.all().firstWhere(.startDate < '2020-01-01')"
+  },
+  {
+    "instruction": "Retrieve the first document from the 'Customers' collection.",
+    "input": "How can I get the first customer in the database using FQL?",
+    "output": "To retrieve the first customer document from the 'Customers' collection using FQL, use this command:\n\nCustomer.all().first()"
+  },
+  {
+    "instruction": "Get the first document from the 'Products' collection.",
+    "input": "What's the FQL command to fetch the first product listed?",
+    "output": "To get the first product from the 'Products' collection using FQL, you can use the following command:\n\nProducts.all().first()"
+  },
+  {
+    "instruction": "Fetch the first document from the 'Orders' collection.",
+    "input": "How do I retrieve the first order in FQL?",
+    "output": "To fetch the first order from the 'Orders' collection using FQL, use this command:\n\nOrders.all().first()"
+  },
+  {
+    "instruction": "Obtain the first document from the 'Events' collection.",
+    "input": "I need the first event from the Events collection using FQL. How do I find it?",
+    "output": "To obtain the first document from the 'Events' collection using FQL, use the following command:\n\nEvents.all().first()"
+  },
+  {
+    "instruction": "Find all employees who have the position of 'Manager'.",
+    "input": "How do I find all employees who are managers using FQL?",
+    "output": "To find all employees who hold the position of 'Manager' in the Employee collection using FQL, use this command:\n\nEmployee.where(.position == 'Manager')"
+  },
+  {
+    "instruction": "Retrieve all products from the 'Products' collection that have a price greater than 100.",
+    "input": "What is the FQL command to find products priced over 100?",
+    "output": "To find all products with a price greater than 100 in the Products collection using FQL, you can use the following command:\n\nProducts.where(.price > 100)"
+  },
+  {
+    "instruction": "Get all books from the 'Books' collection where the genre is 'Fiction'.",
+    "input": "How can I retrieve all fiction books using FQL?",
+    "output": "To retrieve all books classified under the genre 'Fiction' in the Books collection using FQL, execute this command:\n\nBooks.where(.genre == 'Fiction')"
+  },
+  {
+    "instruction": "Query the 'Orders' collection to find all orders placed on or after January 1, 2023.",
+    "input": "What is the FQL query to find all orders from 2023 onwards?",
+    "output": "To find all orders placed on or after January 1, 2023, in the Orders collection using FQL, use the following command:\n\nOrders.where(.date >= '2023-01-01')"
+  },
+  {
+    "instruction": "Retrieve all customers from the 'Customers' collection who live in the city of 'New York'.",
+    "input": "How do I find all customers living in New York City using FQL?",
+    "output": "To find all customers who live in the city of 'New York' in the Customers collection using FQL, use this command:\n\nCustomers.where(.address.city == 'New York')"
+  },
+  {
+    "instruction": "Update the status of users to 'inactive' for all users in the 'User' collection who have not logged in for more than a year.",
+    "input": "How do I set user status to inactive for those who haven't logged in over a year using FQL?",
+    "output": "To update the status of users to 'inactive' for those who have not logged in for more than a year in the User collection, you can use the following FQL command:\n\nUser.where(.lastLogin < DateSubtract(Now(), 1, 'year')).forEach(user => user.update({\n  status: 'inactive'\n}))"
+  },
+  {
+    "instruction": "Set a 'discounted' flag to true for all products in the 'Products' collection where the stock level is greater than 50 and the current discount is 0%.",
+    "input": "How do I mark products as discounted if their stock is above 50 and they currently have no discount using FQL?",
+    "output": "To mark products as discounted where the stock level is greater than 50 and the discount is 0% in the Products collection, use this FQL command:\n\nProducts.where(.stock > 50 && .discount == 0).forEach(product => product.update({\n  discounted: true\n}))"
+  },
+  {
+    "instruction": "Flag all tasks as 'highPriority' that are due within the next 3 days and are not yet completed in the 'Tasks' collection.",
+    "input": "How can I flag tasks as high priority that are due soon and not completed using FQL?",
+    "output": "To flag tasks as 'highPriority' that are due within the next 3 days and not completed in the Tasks collection, use the following FQL command:\n\nTasks.where(.dueDate <= DateAdd(Now(), 3, 'days') && .status != 'completed').forEach(task => task.update({\n  highPriority: true\n}))"
+  },
+  {
+    "instruction": "Mark users as inactive if they have not logged in for the last 6 months in the 'User' collection.",
+    "input": "How do I set user accounts to inactive for those who haven't logged in over six months using FQL?",
+    "output": "To mark users as inactive who have not logged in for the last 6 months in the User collection, you can use the following FQL command:\n\nUser.all().where(.lastLogin < DateSubtract(Now(), 6, 'months')).forEach(user => user.update({\n  isActive: false\n}))"
+  },
+  {
+    "instruction": "Reset the inventory count to zero for all discontinued products in the 'Products' collection.",
+    "input": "How do I reset inventory counts to zero for discontinued products using FQL?",
+    "output": "To reset the inventory count to zero for all products that have been discontinued in the Products collection, use this FQL command:\n\nProducts.where(.status == 'discontinued').forEach(product => product.update({\n  inventoryCount: 0\n}))"
+  },
+  {
+    "instruction": "Set a flag on all tasks that are overdue and not completed in the 'Tasks' collection.",
+    "input": "How can I flag all overdue tasks that are not completed using FQL?",
+    "output": "To set a flag on all tasks that are past their due date and not yet completed in the Tasks collection, use the following FQL command:\n\nTasks.where(.dueDate < Now() && .status != 'completed').forEach(task => task.update({\n  isOverdue: true\n}))"
+  },
+  {
+    "instruction": "Archive all orders that were created more than a year ago in the 'Orders' collection.",
+    "input": "How do I archive orders that were placed over a year ago using FQL?",
+    "output": "To archive all orders that were created more than a year ago in the Orders collection, use this FQL command:\n\nOrders.where(.creationDate < DateSubtract(Now(), 1, 'year')).forEach(order => order.update({\n  archived: true\n}))"
+  },
+  {
+    "instruction": "List employees in the IT department with their names and job titles formatted.",
+    "input": "How can I list all employees in the IT department along with their job titles using FQL?",
+    "output": "To list employees in the IT department with their names and job titles formatted in the Employee collection, use the following FQL command:\n\nEmployee.where(.department == \"IT\").map(\n  employee => \"#{employee.firstName} #{employee.lastName} - #{employee.title}\"\n)"
+  },
+  {
+    "instruction": "Display products that cost more than $100 with their names and prices including tax.",
+    "input": "How do I display products over $100 with their prices including tax using FQL?",
+    "output": "To display products over $100 with their names and prices including tax in the Products collection, use this FQL command:\n\nProducts.where(.price > 100).map(\n  product => \"#{product.name}: $#{product.price * (1 + product.taxRate)}\"\n)"
+  },
+  {
+    "instruction": "Get a list of tasks due this week with their titles and formatted due dates.",
+    "input": "How can I list all tasks due within the next week along with their due dates formatted using FQL?",
+    "output": "To get a list of tasks due this week with their titles and formatted due dates in the Tasks collection, use the following FQL command:\n\nTasks.where(.dueDate <= DateAdd(Now(), 7, 'days')).map(\n  task => \"#{task.title} due by #{DateFormat(task.dueDate, 'yyyy-MM-dd')}\"\n)"
+  },
+  {
+    "instruction": "List customers from New York with their names and email addresses.",
+    "input": "How do I find customers from New York and list their names and emails using FQL?",
+    "output": "To list customers from New York with their names and email addresses in the Customer collection, use this FQL command:\n\nCustomer.where(.address.city == \"New York\").map(\n  customer => \"#{customer.firstName} #{customer.lastName}, Email: #{customer.email}\"\n)"
+  }
+]
