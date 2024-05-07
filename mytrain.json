@@ -489,5 +489,60 @@
     "instruction": "List customers from New York with their names and email addresses.",
     "input": "How do I find customers from New York and list their names and emails using FQL?",
     "output": "To list customers from New York with their names and email addresses in the Customer collection, use this FQL command:\n\nCustomer.where(.address.city == \"New York\").map(\n  customer => \"#{customer.firstName} #{customer.lastName}, Email: #{customer.email}\"\n)"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to find a customer with a specific last name in the database.",
+    "input": "How do I find a customer with the last name 'Smith' in FQL?",
+    "output": "To find a customer with the last name 'Smith' in FQL, you would use the following code:\n\nCustomer.where(.lastName == 'Smith')"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create an index to search users by email and then how to use that index.",
+    "input": "How do I create an index for searching users by email in Fauna?",
+    "output": "To create an index for searching users by their email addresses in Fauna, define the index in your collection schema like this:\n\n```fsl\ncollection User {\n  ...\n  index userEmail {\n    terms [.email]\n  }\n}\n```\nOnce the index is created, you can use it to search for users by email using the following FQL command:\n\n```fql\nUser.userEmail('example@example.com')\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create an index to sort orders by date and then how to use that index.",
+    "input": "How do I create an index to sort orders by date in Fauna?",
+    "output": "To sort orders by date in Fauna, you would define the index in the Order collection schema like this:\n\n```fsl\ncollection Order {\n  ...\n  index ordersByDate {\n    values [asc(.date)]\n  }\n}\n```\nOnce the index is created, retrieve orders sorted by date using the following FQL command:\n\n```fql\nOrder.ordersByDate()\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create a multi-term index for searching products by category and price, and how to use it.",
+    "input": "How do I create an index for searching products by category and price in Fauna?",
+    "output": "To create an index for searching products by both category and price in Fauna, define the index in your Product collection schema like this:\n\n```fsl\ncollection Product {\n  ...\n  index productsByCategoryAndPrice {\n    terms [.category]\n    values [asc(.price)]\n  }\n}\n```\nUse this index to search for products within a specific category and sorted by price using the following FQL command:\n\n```fql\nProduct.productsByCategoryAndPrice('Electronics')\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create an index for filtering customers by city and state, and how to use it.",
+    "input": "How do I create an index for filtering customers by city and state in Fauna?",
+    "output": "To create an index for filtering customers by city and state in Fauna, define the index in your Customer collection schema like this:\n\n```fsl\ncollection Customer {\n  ...\n  index customersByCityAndState {\n    terms [.address.city, .address.state]\n  }\n}\n```\nUse this index to filter customers by city and state using the following FQL command:\n\n```fql\nCustomer.customersByCityAndState('New York', 'NY')\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create an index to search customers by last name and first name, and how to use it.",
+    "input": "How do I create an index to search customers by last name and first name in Fauna?",
+    "output": "To search customers by both last name and first name in Fauna, create an index as follows:\n\n```fsl\ncollection Customer {\n  ...\n  index customersByName {\n    terms [.lastName, .firstName]\n  }\n}\n```\nAfter creating the index, you can use it to find customers by name using this FQL command:\n\n```fql\nCustomer.customersByName('Smith', 'John')\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create an index for searching products based on tags and how to use it.",
+    "input": "How do I create an index to find products with specific tags in Fauna?",
+    "output": "To create an index for searching products by tags in Fauna, define the index in your Product collection schema like this:\n\n```fsl\ncollection Product {\n  ...\n  index productsByTags {\n    terms [mva(.tags)]\n  }\n}\n```\nThis index uses multi-value attributes (mva) for terms, allowing searches across an array of tags. You can use this index to find products with specific tags using the following FQL command:\n\n```fql\nProduct.productsByTags('Organic')\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create an index for filtering orders by customer ID and status, and how to use it.",
+    "input": "How do I create an index to filter orders by customer ID and status in Fauna?",
+    "output": "To create an index for filtering orders by customer ID and status in Fauna, define the index in your Order collection schema like this:\n\n```fsl\ncollection Order {\n  ...\n  index ordersByCustomerAndStatus {\n    terms [.customerId, .status]\n  }\n}\n```\nUse this index to filter orders by customer ID and status using the following FQL command:\n\n```fql\nOrder.ordersByCustomerAndStatus('12345', 'pending')\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create an index for sorting products by price and name, and how to use it.",
+    "input": "How do I create an index to sort products by price and name in Fauna?",
+    "output": "To sort products by price and name in Fauna, define the index in your Product collection schema like this:\n\n```fsl\ncollection Product {\n  ...\n  index productsByPriceAndName {\n    values [asc(.price), asc(.name)]\n  }\n}\n```\nAfter creating the index, you can retrieve products sorted by price and name using the following FQL command:\n\n```fql\nProduct.productsByPriceAndName()\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create an index for filtering tasks by due date and status, and how to use it.",
+    "input": "How do I create an index to filter tasks by due date and status in Fauna?",
+    "output": "To create an index for filtering tasks by due date and status in Fauna, define the index in your Task collection schema like this:\n\n```fsl\ncollection Task {\n  ...\n  index tasksByDueDateAndStatus {\n    terms [.dueDate, .status]\n  }\n}\n```\nUse this index to filter tasks by due date and status using the following FQL command:\n\n```fql\nTask.tasksByDue DateAndStatus('2023-12-31', 'incomplete')\n```"
+  },
+  {
+    "instruction": "Use the FQL code provided to explain how to create a sorted index on the Product collection by price and name, and then demonstrate how to perform a range search using this index.",
+    "input": "How do I create a sorted index by price and name in Fauna and perform a range search for products priced between $20 and $30?",
+    "output": "To create a sorted index by price and name in the Product collection, define the index in your schema like this:\n\n```fsl\ncollection Product {\n  index sortedByPriceLowToHigh {\n    values [asc(.price), asc(.name)]\n  }\n}\n```\nOnce the index is created, you can perform a range search for products priced between $20 and $30 using this FQL command:\n\n```fql\nProduct.sortedByPriceLowToHigh({ from: [20, 'a'], to: [30, 'z'] })\n```\nThis query retrieves products within the specified price range, sorting them by price and then by name."
   }
 ]
